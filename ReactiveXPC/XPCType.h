@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(uint64_t, XPCConnectionOptions) {
+    XPCConnectionOptionsNone = 0,
+    XPCConnectionOptionsPrivileged = XPC_CONNECTION_MACH_SERVICE_PRIVILEGED,
+    XPCConnectionOptionsListener = XPC_CONNECTION_MACH_SERVICE_LISTENER
+};
+
 typedef NS_ENUM(NSInteger, XPCType) {
     XPCTypeNull = 0,
     XPCTypeArray,
@@ -24,3 +30,12 @@ typedef NS_ENUM(NSInteger, XPCType) {
 };
 
 xpc_type_t RXPCType(XPCType type);
+
+typedef NS_ENUM(NSInteger, XPCError) {
+    XPCErrorNone = 0,
+    XPCErrorConnectionInterrupted,
+    XPCErrorConnectionInvalid,
+    XPCErrorTerminationImminent
+};
+
+xpc_object_t RXPCError(XPCError error);

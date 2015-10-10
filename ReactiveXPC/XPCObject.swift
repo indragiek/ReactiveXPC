@@ -85,8 +85,7 @@ public enum XPCObject {
         case .Array(let objects):
             let xpcArray = xpc_array_create(nil, 0)
             for (index, value) in objects.enumerate() {
-                let xpcValue = value.toXPCObject()
-                xpc_array_set_value(xpcArray, index, xpcValue)
+                xpc_array_set_value(xpcArray, index, value.toXPCObject())
             }
             return xpcArray
         case .Boolean(let value):

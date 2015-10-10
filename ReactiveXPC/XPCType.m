@@ -38,3 +38,17 @@ xpc_type_t RXPCType(XPCType type) {
     }
     return NULL;
 }
+
+xpc_object_t RXPCError(XPCError error) {
+    switch (error) {
+        case XPCErrorNone:
+            return NULL;
+        case XPCErrorConnectionInterrupted:
+            return XPC_ERROR_CONNECTION_INTERRUPTED;
+        case XPCErrorConnectionInvalid:
+            return XPC_ERROR_CONNECTION_INVALID;
+        case XPCErrorTerminationImminent:
+            return XPC_ERROR_TERMINATION_IMMINENT;
+    }
+    return NULL;
+}

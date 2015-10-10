@@ -14,6 +14,9 @@
 		726504D61BC8C0D700173660 /* XPCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCObjectTests.swift */; };
 		726504D91BC8C20700173660 /* XPCType.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504D71BC8C20700173660 /* XPCType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504DA1BC8C20700173660 /* XPCType.m in Sources */ = {isa = PBXBuildFile; fileRef = 726504D81BC8C20700173660 /* XPCType.m */; };
+		72D53BB01BC98F3E00DF78BD /* XPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */; settings = {ASSET_TAGS = (); }; };
+		72D53BB41BC9985500DF78BD /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
+		72D53BB51BC9985500DF78BD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		726504D51BC8C0D700173660 /* XPCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObjectTests.swift; sourceTree = "<group>"; };
 		726504D71BC8C20700173660 /* XPCType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCType.h; sourceTree = "<group>"; };
 		726504D81BC8C20700173660 /* XPCType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCType.m; sourceTree = "<group>"; };
+		72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCConnection.swift; sourceTree = "<group>"; };
+		72D53BB21BC9985500DF78BD /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
+		72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72D53BB41BC9985500DF78BD /* Result.framework in Frameworks */,
+				72D53BB51BC9985500DF78BD /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +69,7 @@
 		726504AD1BC8C07F00173660 = {
 			isa = PBXGroup;
 			children = (
+				72D53BB11BC9984700DF78BD /* Frameworks */,
 				726504B91BC8C07F00173660 /* ReactiveXPC */,
 				726504C51BC8C07F00173660 /* ReactiveXPCTests */,
 				726504B81BC8C07F00173660 /* Products */,
@@ -84,6 +93,7 @@
 				726504D11BC8C08600173660 /* XPCObject.swift */,
 				726504D71BC8C20700173660 /* XPCType.h */,
 				726504D81BC8C20700173660 /* XPCType.m */,
+				72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */,
 			);
 			path = ReactiveXPC;
 			sourceTree = "<group>";
@@ -96,6 +106,15 @@
 				726504D51BC8C0D700173660 /* XPCObjectTests.swift */,
 			);
 			path = ReactiveXPCTests;
+			sourceTree = "<group>";
+		};
+		72D53BB11BC9984700DF78BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				72D53BB21BC9985500DF78BD /* Result.framework */,
+				72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				726504D21BC8C08600173660 /* XPCObject.swift in Sources */,
+				72D53BB01BC98F3E00DF78BD /* XPCConnection.swift in Sources */,
 				726504DA1BC8C20700173660 /* XPCType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +346,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = ReactiveXPC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -346,6 +370,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = ReactiveXPC/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -397,6 +425,7 @@
 				726504CD1BC8C07F00173660 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		726504CE1BC8C07F00173660 /* Build configuration list for PBXNativeTarget "ReactiveXPCTests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +434,7 @@
 				726504D01BC8C07F00173660 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
