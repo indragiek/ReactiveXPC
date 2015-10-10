@@ -170,3 +170,46 @@ extension XPCObject: CustomStringConvertible {
         }
     }
 }
+
+extension XPCObject: Equatable {}
+
+public func ==(lhs: XPCObject, rhs: XPCObject) -> Bool {
+    switch (lhs, rhs) {
+    case (.Array(let lhsArray), .Array(let rhsArray)):
+        return lhsArray == rhsArray
+    case (.Boolean(let lhsValue), .Boolean(let rhsValue)):
+        return lhsValue == rhsValue
+    case (.Data(let lhsData), .Data(let rhsData)):
+        return lhsData == rhsData
+    case (.Date(let lhsDate), .Date(let rhsDate)):
+        return lhsDate == rhsDate
+    case (.Dictionary(let lhsDictionary), .Dictionary(let rhsDictionary)):
+        return lhsDictionary == rhsDictionary
+    case (.Double(let lhsValue), .Double(let rhsValue)):
+        return lhsValue == rhsValue
+    case (.FileHandle(let lhsHandle), .FileHandle(let rhsHandle)):
+        var lhsStat = stat()
+        if (fstat(lhsHandle.fileDescriptor, &lhsStat) < 0) {
+            return false
+        }
+        var rhsStat = stat()
+        if (fstat(rhsHandle.fileDescriptor, &rhsStat) < 0) {
+            return false
+        }
+        return (lhsStat.st_dev == rhsStat.st_dev) && (lhsStat.st_ino == rhsStat.st_ino)
+    case (.Int64(let lhsValue), .Int64(let rhsValue)):
+        return lhsValue == rhsValue
+    case (.Null, .Null):
+        return true
+    case (.SharedMemory(let lhsAddress, let lhsLength), .SharedMemory(let rhsAddress, let rhsLength)):
+        return (lhsAddress == rhsAddress) && (lhsLength == rhsLength)
+    case (.String(let lhsString), .String(let rhsString)):
+        return lhsString == rhsString
+    case (.UInt64(let lhsValue), .UInt64(let rhsValue)):
+        return lhsValue == rhsValue
+    case (.UUID(let lhsUUID), .UUID(let rhsUUID)):
+        return lhsUUID == rhsUUID
+    default:
+        return false
+    }
+}
