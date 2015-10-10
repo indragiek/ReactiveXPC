@@ -137,3 +137,36 @@ public enum XPCObject {
         }
     }
 }
+
+extension XPCObject: CustomStringConvertible {
+    public var description: Swift.String {
+        switch self {
+        case .Array(let array):
+            return "XPCObject.Array: \(array)"
+        case .Boolean(let value):
+            return "XPCObject.Boolean: \(value)"
+        case .Data(let data):
+            return "XPCObject.Data: \(data)"
+        case .Date(let date):
+            return "XPCObject.Date: \(date)"
+        case .Dictionary(let dictionary):
+            return "XPCObject.Dictionary: \(dictionary)"
+        case .Double(let value):
+            return "XPCObject.Double: \(value)"
+        case .FileHandle(let handle):
+            return "XPCObject.FileHandle: \(handle)"
+        case .Int64(let value):
+            return "XPCObject.Int64: \(value)"
+        case .Null:
+            return "XPCObject.Null"
+        case .SharedMemory(let address, let length):
+            return "XPCObject.SharedMemory: (address: \(address), length: \(length))"
+        case .String(let string):
+            return "XPCObject.String: \(string)"
+        case .UInt64(let value):
+            return "XPCObject.UInt64: \(value)"
+        case .UUID(let UUID):
+            return "XPCObject.UUID: \(UUID)"
+        }
+    }
+}
