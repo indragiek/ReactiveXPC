@@ -18,7 +18,6 @@ typedef NS_ENUM(NSInteger, XPCType) {
     XPCTypeDouble,
     XPCTypeFileHandle,
     XPCTypeInt64,
-    XPCTypeSharedMemory,
     XPCTypeString,
     XPCTypeUInt64,
     XPCTypeUUID

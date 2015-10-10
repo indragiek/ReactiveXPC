@@ -18,7 +18,6 @@ public enum XPCObject {
     case FileHandle(NSFileHandle)
     case Int64(Swift.Int64)
     case Null
-    case SharedMemory(address: UnsafeMutablePointer<Void>, length: Int)
     case String(Swift.String)
     case UInt64(Swift.UInt64)
     case UUID(NSUUID)
@@ -60,16 +59,12 @@ public enum XPCObject {
         case RXPCType(.Double):
             self = .Double(xpc_double_get_value(xpcObject))
         case RXPCType(.FileHandle):
-            let fileHandle = NSFileHandle(fileDescriptor: xpc_fd_dup(xpcObject))
+            let fileHandle = NSFileHandle(fileDescriptor: xpc_fd_dup(xpcObject), closeOnDealloc: true)
             self = .FileHandle(fileHandle)
         case RXPCType(.Int64):
             self = .Int64(xpc_int64_get_value(xpcObject))
         case RXPCType(.Null):
             self = .Null
-        case RXPCType(.SharedMemory):
-            var address: UnsafeMutablePointer<Void> = nil
-            let length = xpc_shmem_map(xpcObject, &address)
-            self = .SharedMemory(address: address, length: length)
         case RXPCType(.String):
             if let string = SwiftString.fromCString(xpc_string_get_string_ptr(xpcObject)) {
                 self = .String(string)
@@ -85,15 +80,14 @@ public enum XPCObject {
         }
     }
     
-    public func createXPCObject() -> xpc_object_t {
+    public func toXPCObject() -> xpc_object_t {
         switch self {
         case .Array(let objects):
-            let xpcObjects = objects.map { $0.createXPCObject() }
-            var xpcArray = xpc_null_create()
-            (xpcObjects as [xpc_object_t?]).withUnsafeBufferPointer {
-                xpcArray = xpc_array_create($0.baseAddress, xpcObjects.count)
+            let xpcArray = xpc_array_create(nil, 0)
+            for (index, value) in objects.enumerate() {
+                let xpcValue = value.toXPCObject()
+                xpc_array_set_value(xpcArray, index, xpcValue)
             }
-            xpcObjects.forEach { xpc_release($0) }
             return xpcArray
         case .Boolean(let value):
             return xpc_bool_create(value)
@@ -102,15 +96,10 @@ public enum XPCObject {
         case .Date(let date):
             return xpc_date_create(Swift.Int64(date.timeIntervalSince1970))
         case .Dictionary(let dictionary):
-            let keys = Swift.Array(dictionary.keys.map { $0.withCString { $0 } })
-            let objects = Swift.Array(dictionary.values.map { $0.createXPCObject() })
-            var xpcDictionary = xpc_null_create()
-            keys.withUnsafeBufferPointer { keysPtr in
-                (objects as [xpc_object_t?]).withUnsafeBufferPointer { objectsPtr in
-                    xpcDictionary = xpc_dictionary_create(keysPtr.baseAddress, objectsPtr.baseAddress, 0)
-                }
+            let xpcDictionary = xpc_dictionary_create(nil, nil, 0)
+            for (key, value) in dictionary {
+                xpc_dictionary_set_value(xpcDictionary, key, value.toXPCObject())
             }
-            objects.forEach { xpc_release($0) }
             return xpcDictionary
         case .Double(let value):
             return xpc_double_create(value)
@@ -120,14 +109,8 @@ public enum XPCObject {
             return xpc_int64_create(value)
         case .Null:
             return xpc_null_create()
-        case .SharedMemory(let address, let length):
-            return xpc_shmem_create(address, length)
         case .String(let string):
-            var xpcObject = xpc_null_create()
-            string.withCString {
-                xpcObject = xpc_string_create($0)
-            }
-            return xpcObject
+            return xpc_string_create(string)
         case .UInt64(let value):
             return xpc_uint64_create(value)
         case .UUID(let UUID):
@@ -159,8 +142,6 @@ extension XPCObject: CustomStringConvertible {
             return "XPCObject.Int64: \(value)"
         case .Null:
             return "XPCObject.Null"
-        case .SharedMemory(let address, let length):
-            return "XPCObject.SharedMemory: (address: \(address), length: \(length))"
         case .String(let string):
             return "XPCObject.String: \(string)"
         case .UInt64(let value):
@@ -201,8 +182,6 @@ public func ==(lhs: XPCObject, rhs: XPCObject) -> Bool {
         return lhsValue == rhsValue
     case (.Null, .Null):
         return true
-    case (.SharedMemory(let lhsAddress, let lhsLength), .SharedMemory(let rhsAddress, let rhsLength)):
-        return (lhsAddress == rhsAddress) && (lhsLength == rhsLength)
     case (.String(let lhsString), .String(let rhsString)):
         return lhsString == rhsString
     case (.UInt64(let lhsValue), .UInt64(let rhsValue)):

@@ -13,6 +13,8 @@ xpc_type_t RXPCType(XPCType type) {
     switch (type) {
         case XPCTypeNull:
             return XPC_TYPE_NULL;
+        case XPCTypeArray:
+            return XPC_TYPE_ARRAY;
         case XPCTypeBoolean:
             return XPC_TYPE_BOOL;
         case XPCTypeData:
@@ -27,15 +29,12 @@ xpc_type_t RXPCType(XPCType type) {
             return XPC_TYPE_FD;
         case XPCTypeInt64:
             return XPC_TYPE_INT64;
-        case XPCTypeSharedMemory:
-            return XPC_TYPE_SHMEM;
         case XPCTypeString:
             return XPC_TYPE_STRING;
         case XPCTypeUInt64:
             return XPC_TYPE_UINT64;
         case XPCTypeUUID:
             return XPC_TYPE_UUID;
-        default:
-            return NULL;
     }
+    return NULL;
 }
