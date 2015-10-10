@@ -10,6 +10,10 @@
 		726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504BA1BC8C07F00173660 /* ReactiveXPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
 		726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */; };
+		726504D21BC8C08600173660 /* XPCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D11BC8C08600173660 /* XPCObject.swift */; };
+		726504D61BC8C0D700173660 /* XPCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCObjectTests.swift */; };
+		726504D91BC8C20700173660 /* XPCType.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504D71BC8C20700173660 /* XPCType.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		726504DA1BC8C20700173660 /* XPCType.m in Sources */ = {isa = PBXBuildFile; fileRef = 726504D81BC8C20700173660 /* XPCType.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +33,10 @@
 		726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveXPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveXPCTests.swift; sourceTree = "<group>"; };
 		726504C81BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726504D11BC8C08600173660 /* XPCObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObject.swift; sourceTree = "<group>"; };
+		726504D51BC8C0D700173660 /* XPCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObjectTests.swift; sourceTree = "<group>"; };
+		726504D71BC8C20700173660 /* XPCType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCType.h; sourceTree = "<group>"; };
+		726504D81BC8C20700173660 /* XPCType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCType.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,9 @@
 			children = (
 				726504BA1BC8C07F00173660 /* ReactiveXPC.h */,
 				726504BC1BC8C07F00173660 /* Info.plist */,
+				726504D11BC8C08600173660 /* XPCObject.swift */,
+				726504D71BC8C20700173660 /* XPCType.h */,
+				726504D81BC8C20700173660 /* XPCType.m */,
 			);
 			path = ReactiveXPC;
 			sourceTree = "<group>";
@@ -82,6 +93,7 @@
 			children = (
 				726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */,
 				726504C81BC8C07F00173660 /* Info.plist */,
+				726504D51BC8C0D700173660 /* XPCObjectTests.swift */,
 			);
 			path = ReactiveXPCTests;
 			sourceTree = "<group>";
@@ -93,6 +105,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726504D91BC8C20700173660 /* XPCType.h in Headers */,
 				726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,6 +206,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726504D21BC8C08600173660 /* XPCObject.swift in Sources */,
+				726504DA1BC8C20700173660 /* XPCType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				726504D61BC8C0D700173660 /* XPCObjectTests.swift in Sources */,
 				726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +320,7 @@
 		726504CC1BC8C07F00173660 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -316,12 +333,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		726504CD1BC8C07F00173660 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;

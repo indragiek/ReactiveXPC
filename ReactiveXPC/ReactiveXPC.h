@@ -14,6 +14,6 @@ FOUNDATION_EXPORT double ReactiveXPCVersionNumber;
 //! Project version string for ReactiveXPC.
 FOUNDATION_EXPORT const unsigned char ReactiveXPCVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <ReactiveXPC/PublicHeader.h>
+#import <ReactiveXPC/XPCType.h>
 
 
