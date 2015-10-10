@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504BA1BC8C07F00173660 /* ReactiveXPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
+		726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		726504C31BC8C07F00173660 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 726504AE1BC8C07F00173660 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726504B61BC8C07F00173660;
+			remoteInfo = ReactiveXPC;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		726504B71BC8C07F00173660 /* ReactiveXPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveXPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		726504BA1BC8C07F00173660 /* ReactiveXPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveXPC.h; sourceTree = "<group>"; };
+		726504BC1BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveXPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveXPCTests.swift; sourceTree = "<group>"; };
+		726504C81BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		726504B31BC8C07F00173660 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726504BE1BC8C07F00173660 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		726504AD1BC8C07F00173660 = {
+			isa = PBXGroup;
+			children = (
+				726504B91BC8C07F00173660 /* ReactiveXPC */,
+				726504C51BC8C07F00173660 /* ReactiveXPCTests */,
+				726504B81BC8C07F00173660 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		726504B81BC8C07F00173660 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				726504B71BC8C07F00173660 /* ReactiveXPC.framework */,
+				726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		726504B91BC8C07F00173660 /* ReactiveXPC */ = {
+			isa = PBXGroup;
+			children = (
+				726504BA1BC8C07F00173660 /* ReactiveXPC.h */,
+				726504BC1BC8C07F00173660 /* Info.plist */,
+			);
+			path = ReactiveXPC;
+			sourceTree = "<group>";
+		};
+		726504C51BC8C07F00173660 /* ReactiveXPCTests */ = {
+			isa = PBXGroup;
+			children = (
+				726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */,
+				726504C81BC8C07F00173660 /* Info.plist */,
+			);
+			path = ReactiveXPCTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		726504B41BC8C07F00173660 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		726504B61BC8C07F00173660 /* ReactiveXPC */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 726504CB1BC8C07F00173660 /* Build configuration list for PBXNativeTarget "ReactiveXPC" */;
+			buildPhases = (
+				726504B21BC8C07F00173660 /* Sources */,
+				726504B31BC8C07F00173660 /* Frameworks */,
+				726504B41BC8C07F00173660 /* Headers */,
+				726504B51BC8C07F00173660 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ReactiveXPC;
+			productName = ReactiveXPC;
+			productReference = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		726504C01BC8C07F00173660 /* ReactiveXPCTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 726504CE1BC8C07F00173660 /* Build configuration list for PBXNativeTarget "ReactiveXPCTests" */;
+			buildPhases = (
+				726504BD1BC8C07F00173660 /* Sources */,
+				726504BE1BC8C07F00173660 /* Frameworks */,
+				726504BF1BC8C07F00173660 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				726504C41BC8C07F00173660 /* PBXTargetDependency */,
+			);
+			name = ReactiveXPCTests;
+			productName = ReactiveXPCTests;
+			productReference = 726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		726504AE1BC8C07F00173660 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Indragie Karunaratne";
+				TargetAttributes = {
+					726504B61BC8C07F00173660 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					726504C01BC8C07F00173660 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 726504B11BC8C07F00173660 /* Build configuration list for PBXProject "ReactiveXPC" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 726504AD1BC8C07F00173660;
+			productRefGroup = 726504B81BC8C07F00173660 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				726504B61BC8C07F00173660 /* ReactiveXPC */,
+				726504C01BC8C07F00173660 /* ReactiveXPCTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		726504B51BC8C07F00173660 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726504BF1BC8C07F00173660 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		726504B21BC8C07F00173660 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726504BD1BC8C07F00173660 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		726504C41BC8C07F00173660 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726504B61BC8C07F00173660 /* ReactiveXPC */;
+			targetProxy = 726504C31BC8C07F00173660 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		726504C91BC8C07F00173660 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		726504CA1BC8C07F00173660 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		726504CC1BC8C07F00173660 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ReactiveXPC/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		726504CD1BC8C07F00173660 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = ReactiveXPC/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPC;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		726504CF1BC8C07F00173660 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ReactiveXPCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		726504D01BC8C07F00173660 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ReactiveXPCTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPCTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		726504B11BC8C07F00173660 /* Build configuration list for PBXProject "ReactiveXPC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726504C91BC8C07F00173660 /* Debug */,
+				726504CA1BC8C07F00173660 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		726504CB1BC8C07F00173660 /* Build configuration list for PBXNativeTarget "ReactiveXPC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726504CC1BC8C07F00173660 /* Debug */,
+				726504CD1BC8C07F00173660 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		726504CE1BC8C07F00173660 /* Build configuration list for PBXNativeTarget "ReactiveXPCTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726504CF1BC8C07F00173660 /* Debug */,
+				726504D01BC8C07F00173660 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 726504AE1BC8C07F00173660 /* Project object */;
+}
