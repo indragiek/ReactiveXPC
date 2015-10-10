@@ -9,7 +9,7 @@
 #import "XPCType.h"
 #import <xpc/xpc.h>
 
-xpc_type_t RXPCGetTypePtrForXPCType(XPCType type) {
+xpc_type_t RXPCType(XPCType type) {
     switch (type) {
         case XPCTypeNull:
             return XPC_TYPE_NULL;

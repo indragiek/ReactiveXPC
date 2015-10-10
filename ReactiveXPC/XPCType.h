@@ -24,4 +24,4 @@ typedef NS_ENUM(NSInteger, XPCType) {
     XPCTypeUUID
 };
 
-xpc_type_t RXPCGetTypePtrForXPCType(XPCType type);
+xpc_type_t RXPCType(XPCType type);

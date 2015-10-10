@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Darwin
 
 public enum XPCObject {
     case Array([XPCObject])
@@ -32,7 +31,7 @@ public enum XPCObject {
     public init?(xpcObject: xpc_object_t) {
         let type = xpc_get_type(xpcObject)
         switch type {
-        case RXPCGetTypePtrForXPCType(.Array):
+        case RXPCType(.Array):
             var array = [XPCObject]()
             xpc_array_apply(xpcObject) { (_, value) in
                 if let object = XPCObject(xpcObject: value) {
@@ -41,15 +40,15 @@ public enum XPCObject {
                 return true
             }
             self = .Array(array)
-        case RXPCGetTypePtrForXPCType(.Boolean):
+        case RXPCType(.Boolean):
             self = .Boolean(xpc_bool_get_value(xpcObject))
-        case RXPCGetTypePtrForXPCType(.Data):
+        case RXPCType(.Data):
             let data = NSData(bytes: xpc_data_get_bytes_ptr(xpcObject), length: xpc_data_get_length(xpcObject))
             self = XPCObject.Data(data)
-        case RXPCGetTypePtrForXPCType(.Date):
+        case RXPCType(.Date):
             let interval = NSTimeInterval(xpc_date_get_value(xpcObject))
             self = .Date(NSDate(timeIntervalSince1970: interval))
-        case RXPCGetTypePtrForXPCType(.Dictionary):
+        case RXPCType(.Dictionary):
             var dictionary = [SwiftString: XPCObject]()
             xpc_dictionary_apply(xpcObject) { (key, value) in
                 if let object = XPCObject(xpcObject: value), key = SwiftString.fromCString(key) {
@@ -58,28 +57,28 @@ public enum XPCObject {
                 return true
             }
             self = .Dictionary(dictionary)
-        case RXPCGetTypePtrForXPCType(.Double):
+        case RXPCType(.Double):
             self = .Double(xpc_double_get_value(xpcObject))
-        case RXPCGetTypePtrForXPCType(.FileHandle):
+        case RXPCType(.FileHandle):
             let fileHandle = NSFileHandle(fileDescriptor: xpc_fd_dup(xpcObject))
             self = .FileHandle(fileHandle)
-        case RXPCGetTypePtrForXPCType(.Int64):
+        case RXPCType(.Int64):
             self = .Int64(xpc_int64_get_value(xpcObject))
-        case RXPCGetTypePtrForXPCType(.Null):
+        case RXPCType(.Null):
             self = .Null
-        case RXPCGetTypePtrForXPCType(.SharedMemory):
+        case RXPCType(.SharedMemory):
             var address: UnsafeMutablePointer<Void> = nil
             let length = xpc_shmem_map(xpcObject, &address)
             self = .SharedMemory(address: address, length: length)
-        case RXPCGetTypePtrForXPCType(.String):
+        case RXPCType(.String):
             if let string = SwiftString.fromCString(xpc_string_get_string_ptr(xpcObject)) {
                 self = .String(string)
             } else {
                 return nil
             }
-        case RXPCGetTypePtrForXPCType(.UInt64):
+        case RXPCType(.UInt64):
             self = .UInt64(xpc_uint64_get_value(xpcObject))
-        case RXPCGetTypePtrForXPCType(.UUID):
+        case RXPCType(.UUID):
             self = .UUID(NSUUID(UUIDBytes: xpc_uuid_get_bytes(xpcObject)))
         default:
             return nil
