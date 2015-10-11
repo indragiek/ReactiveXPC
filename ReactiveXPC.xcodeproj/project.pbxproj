@@ -9,14 +9,23 @@
 /* Begin PBXBuildFile section */
 		726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504BA1BC8C07F00173660 /* ReactiveXPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
-		726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */; };
 		726504D21BC8C08600173660 /* XPCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D11BC8C08600173660 /* XPCObject.swift */; };
-		726504D61BC8C0D700173660 /* XPCObjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCObjectTests.swift */; };
+		726504D61BC8C0D700173660 /* XPCMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCMessageTests.swift */; };
 		726504D91BC8C20700173660 /* XPCType.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504D71BC8C20700173660 /* XPCType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504DA1BC8C20700173660 /* XPCType.m in Sources */ = {isa = PBXBuildFile; fileRef = 726504D81BC8C20700173660 /* XPCType.m */; };
 		72D53BB01BC98F3E00DF78BD /* XPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */; settings = {ASSET_TAGS = (); }; };
 		72D53BB41BC9985500DF78BD /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
 		72D53BB51BC9985500DF78BD /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
+		72D53BBD1BC9CB6600DF78BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BBC1BC9CB6600DF78BD /* AppDelegate.swift */; };
+		72D53BBF1BC9CB6600DF78BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D53BBE1BC9CB6600DF78BD /* Assets.xcassets */; };
+		72D53BC21BC9CB6600DF78BD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D53BC01BC9CB6600DF78BD /* MainMenu.xib */; };
+		72D53BD01BC9CB8000DF78BD /* ExampleXPCService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */; };
+		72D53BD21BC9CB8000DF78BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BD11BC9CB8000DF78BD /* main.m */; };
+		72D53BD71BC9CB8000DF78BD /* ExampleXPCService.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72E0A9E81BCA236900E69CD6 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
+		72E0A9E91BCA236900E69CD6 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
+		72E0A9EB1BCA23A000E69CD6 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72E0A9EC1BCA23A000E69CD6 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,22 +36,64 @@
 			remoteGlobalIDString = 726504B61BC8C07F00173660;
 			remoteInfo = ReactiveXPC;
 		};
+		72D53BD41BC9CB8000DF78BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 726504AE1BC8C07F00173660 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72D53BCA1BC9CB8000DF78BD;
+			remoteInfo = ExampleXPCService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		72D53BD61BC9CB8000DF78BD /* Embed XPC Services */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/XPCServices";
+			dstSubfolderSpec = 16;
+			files = (
+				72D53BD71BC9CB8000DF78BD /* ExampleXPCService.xpc in Embed XPC Services */,
+			);
+			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72E0A9EA1BCA239A00E69CD6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				72E0A9EB1BCA23A000E69CD6 /* Result.framework in CopyFiles */,
+				72E0A9EC1BCA23A000E69CD6 /* ReactiveCocoa.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		726504B71BC8C07F00173660 /* ReactiveXPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveXPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		726504BA1BC8C07F00173660 /* ReactiveXPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveXPC.h; sourceTree = "<group>"; };
 		726504BC1BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveXPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveXPCTests.swift; sourceTree = "<group>"; };
 		726504C81BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		726504D11BC8C08600173660 /* XPCObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObject.swift; sourceTree = "<group>"; };
-		726504D51BC8C0D700173660 /* XPCObjectTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObjectTests.swift; sourceTree = "<group>"; };
+		726504D51BC8C0D700173660 /* XPCMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCMessageTests.swift; sourceTree = "<group>"; };
 		726504D71BC8C20700173660 /* XPCType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCType.h; sourceTree = "<group>"; };
 		726504D81BC8C20700173660 /* XPCType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCType.m; sourceTree = "<group>"; };
 		72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCConnection.swift; sourceTree = "<group>"; };
 		72D53BB21BC9985500DF78BD /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/Mac/Result.framework; sourceTree = "<group>"; };
 		72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
+		72D53BBA1BC9CB6600DF78BD /* ExampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D53BBC1BC9CB6600DF78BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		72D53BBE1BC9CB6600DF78BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72D53BC11BC9CB6600DF78BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		72D53BC31BC9CB6600DF78BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = ExampleXPCService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D53BCD1BC9CB8000DF78BD /* ExampleXPCServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleXPCServiceProtocol.h; sourceTree = "<group>"; };
+		72D53BCE1BC9CB8000DF78BD /* ExampleXPCService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleXPCService.h; sourceTree = "<group>"; };
+		72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleXPCService.m; sourceTree = "<group>"; };
+		72D53BD11BC9CB8000DF78BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72D53BD31BC9CB8000DF78BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +111,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */,
+				72E0A9E91BCA236900E69CD6 /* ReactiveCocoa.framework in Frameworks */,
+				72E0A9E81BCA236900E69CD6 /* Result.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BB71BC9CB6600DF78BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BC81BC9CB8000DF78BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +136,8 @@
 		726504AD1BC8C07F00173660 = {
 			isa = PBXGroup;
 			children = (
+				72D53BBB1BC9CB6600DF78BD /* ExampleApp */,
+				72D53BCC1BC9CB8000DF78BD /* ExampleXPCService */,
 				72D53BB11BC9984700DF78BD /* Frameworks */,
 				726504B91BC8C07F00173660 /* ReactiveXPC */,
 				726504C51BC8C07F00173660 /* ReactiveXPCTests */,
@@ -81,6 +150,8 @@
 			children = (
 				726504B71BC8C07F00173660 /* ReactiveXPC.framework */,
 				726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */,
+				72D53BBA1BC9CB6600DF78BD /* ExampleApp.app */,
+				72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,9 +162,9 @@
 				726504BA1BC8C07F00173660 /* ReactiveXPC.h */,
 				726504BC1BC8C07F00173660 /* Info.plist */,
 				726504D11BC8C08600173660 /* XPCObject.swift */,
+				72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */,
 				726504D71BC8C20700173660 /* XPCType.h */,
 				726504D81BC8C20700173660 /* XPCType.m */,
-				72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */,
 			);
 			path = ReactiveXPC;
 			sourceTree = "<group>";
@@ -101,9 +172,8 @@
 		726504C51BC8C07F00173660 /* ReactiveXPCTests */ = {
 			isa = PBXGroup;
 			children = (
-				726504C61BC8C07F00173660 /* ReactiveXPCTests.swift */,
 				726504C81BC8C07F00173660 /* Info.plist */,
-				726504D51BC8C0D700173660 /* XPCObjectTests.swift */,
+				726504D51BC8C0D700173660 /* XPCMessageTests.swift */,
 			);
 			path = ReactiveXPCTests;
 			sourceTree = "<group>";
@@ -115,6 +185,29 @@
 				72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		72D53BBB1BC9CB6600DF78BD /* ExampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				72D53BBC1BC9CB6600DF78BD /* AppDelegate.swift */,
+				72D53BBE1BC9CB6600DF78BD /* Assets.xcassets */,
+				72D53BC01BC9CB6600DF78BD /* MainMenu.xib */,
+				72D53BC31BC9CB6600DF78BD /* Info.plist */,
+			);
+			path = ExampleApp;
+			sourceTree = "<group>";
+		};
+		72D53BCC1BC9CB8000DF78BD /* ExampleXPCService */ = {
+			isa = PBXGroup;
+			children = (
+				72D53BCD1BC9CB8000DF78BD /* ExampleXPCServiceProtocol.h */,
+				72D53BCE1BC9CB8000DF78BD /* ExampleXPCService.h */,
+				72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */,
+				72D53BD11BC9CB8000DF78BD /* main.m */,
+				72D53BD31BC9CB8000DF78BD /* Info.plist */,
+			);
+			path = ExampleXPCService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +250,7 @@
 				726504BD1BC8C07F00173660 /* Sources */,
 				726504BE1BC8C07F00173660 /* Frameworks */,
 				726504BF1BC8C07F00173660 /* Resources */,
+				72E0A9EA1BCA239A00E69CD6 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -167,6 +261,42 @@
 			productName = ReactiveXPCTests;
 			productReference = 726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		72D53BB91BC9CB6600DF78BD /* ExampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72D53BC41BC9CB6600DF78BD /* Build configuration list for PBXNativeTarget "ExampleApp" */;
+			buildPhases = (
+				72D53BB61BC9CB6600DF78BD /* Sources */,
+				72D53BB71BC9CB6600DF78BD /* Frameworks */,
+				72D53BB81BC9CB6600DF78BD /* Resources */,
+				72D53BD61BC9CB8000DF78BD /* Embed XPC Services */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				72D53BD51BC9CB8000DF78BD /* PBXTargetDependency */,
+			);
+			name = ExampleApp;
+			productName = ExampleApp;
+			productReference = 72D53BBA1BC9CB6600DF78BD /* ExampleApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		72D53BCA1BC9CB8000DF78BD /* ExampleXPCService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72D53BD81BC9CB8000DF78BD /* Build configuration list for PBXNativeTarget "ExampleXPCService" */;
+			buildPhases = (
+				72D53BC71BC9CB8000DF78BD /* Sources */,
+				72D53BC81BC9CB8000DF78BD /* Frameworks */,
+				72D53BC91BC9CB8000DF78BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExampleXPCService;
+			productName = ExampleXPCService;
+			productReference = 72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */;
+			productType = "com.apple.product-type.xpc-service";
 		};
 /* End PBXNativeTarget section */
 
@@ -183,6 +313,12 @@
 					726504C01BC8C07F00173660 = {
 						CreatedOnToolsVersion = 7.1;
 					};
+					72D53BB91BC9CB6600DF78BD = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					72D53BCA1BC9CB8000DF78BD = {
+						CreatedOnToolsVersion = 7.0;
+					};
 				};
 			};
 			buildConfigurationList = 726504B11BC8C07F00173660 /* Build configuration list for PBXProject "ReactiveXPC" */;
@@ -191,6 +327,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 726504AD1BC8C07F00173660;
 			productRefGroup = 726504B81BC8C07F00173660 /* Products */;
@@ -199,6 +336,8 @@
 			targets = (
 				726504B61BC8C07F00173660 /* ReactiveXPC */,
 				726504C01BC8C07F00173660 /* ReactiveXPCTests */,
+				72D53BB91BC9CB6600DF78BD /* ExampleApp */,
+				72D53BCA1BC9CB8000DF78BD /* ExampleXPCService */,
 			);
 		};
 /* End PBXProject section */
@@ -212,6 +351,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		726504BF1BC8C07F00173660 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BB81BC9CB6600DF78BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D53BBF1BC9CB6600DF78BD /* Assets.xcassets in Resources */,
+				72D53BC21BC9CB6600DF78BD /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BC91BC9CB8000DF78BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -235,8 +390,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				726504D61BC8C0D700173660 /* XPCObjectTests.swift in Sources */,
-				726504C71BC8C07F00173660 /* ReactiveXPCTests.swift in Sources */,
+				726504D61BC8C0D700173660 /* XPCMessageTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BB61BC9CB6600DF78BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D53BBD1BC9CB6600DF78BD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D53BC71BC9CB8000DF78BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D53BD21BC9CB8000DF78BD /* main.m in Sources */,
+				72D53BD01BC9CB8000DF78BD /* ExampleXPCService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +419,23 @@
 			target = 726504B61BC8C07F00173660 /* ReactiveXPC */;
 			targetProxy = 726504C31BC8C07F00173660 /* PBXContainerItemProxy */;
 		};
+		72D53BD51BC9CB8000DF78BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72D53BCA1BC9CB8000DF78BD /* ExampleXPCService */;
+			targetProxy = 72D53BD41BC9CB8000DF78BD /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		72D53BC01BC9CB6600DF78BD /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72D53BC11BC9CB6600DF78BD /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		726504C91BC8C07F00173660 /* Debug */ = {
@@ -388,6 +575,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ReactiveXPCTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPCTests;
@@ -399,10 +590,60 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ReactiveXPCTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ReactiveXPCTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		72D53BC51BC9CB6600DF78BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		72D53BC61BC9CB6600DF78BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExampleApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		72D53BD91BC9CB8000DF78BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExampleXPCService/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleXPCService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		72D53BDA1BC9CB8000DF78BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExampleXPCService/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleXPCService;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -432,6 +673,24 @@
 			buildConfigurations = (
 				726504CF1BC8C07F00173660 /* Debug */,
 				726504D01BC8C07F00173660 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72D53BC41BC9CB6600DF78BD /* Build configuration list for PBXNativeTarget "ExampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D53BC51BC9CB6600DF78BD /* Debug */,
+				72D53BC61BC9CB6600DF78BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72D53BD81BC9CB8000DF78BD /* Build configuration list for PBXNativeTarget "ExampleXPCService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D53BD91BC9CB8000DF78BD /* Debug */,
+				72D53BDA1BC9CB8000DF78BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

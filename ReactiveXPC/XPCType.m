@@ -1,10 +1,4 @@
-//
-//  XPCType.m
-//  ReactiveXPC
-//
-//  Created by Indragie on 10/9/15.
 //  Copyright © 2015 Indragie Karunaratne. All rights reserved.
-//
 
 #import "XPCType.h"
 #import <xpc/xpc.h>

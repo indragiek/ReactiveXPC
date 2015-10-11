@@ -1,12 +1,9 @@
-//
-//  XPCType.h
-//  ReactiveXPC
-//
-//  Created by Indragie on 10/9/15.
 //  Copyright © 2015 Indragie Karunaratne. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
+
+/// XPC_* constants aren't bridged to Swift, so use some Objective-C
+/// to expose them.
 
 typedef NS_ENUM(uint64_t, XPCConnectionOptions) {
     XPCConnectionOptionsNone = 0,

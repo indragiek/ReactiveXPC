@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ExampleApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>ExampleXPCService.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>ReactiveXPC.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>726504C01BC8C07F00173660</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72D53BB91BC9CB6600DF78BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72D53BCA1BC9CB8000DF78BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
