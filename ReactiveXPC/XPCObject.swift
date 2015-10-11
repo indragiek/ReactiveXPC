@@ -1,40 +1,37 @@
-//
-//  XPCObject.swift
-//  ReactiveXPC
-//
-//  Created by Indragie on 10/9/15.
 //  Copyright © 2015 Indragie Karunaratne. All rights reserved.
-//
 
 import Foundation
 
-public enum XPCObject {
-    case Array([XPCObject])
-    case Boolean(Bool)
-    case Data(NSData)
-    case Date(NSDate)
-    case Dictionary([Swift.String: XPCObject])
-    case Double(Swift.Double)
-    case FileHandle(NSFileHandle)
-    case Int64(Swift.Int64)
-    case Null
-    case String(Swift.String)
-    case UInt64(Swift.UInt64)
-    case UUID(NSUUID)
+public enum XPCMessage {
+    case Array([XPCMessage])                    // XPC_TYPE_ARRAY
+    case Boolean(Bool)                          // XPC_TYPE_BOOL
+    case Data(NSData)                           // XPC_TYPE_DATA
+    case Date(NSDate)                           // XPC_TYPE_DATE
+    case Dictionary([Swift.String: XPCMessage]) // XPC_TYPE_DICTIONARY
+    case Double(Swift.Double)                   // XPC_TYPE_DOUBLE
+    case FileHandle(NSFileHandle)               // XPC_TYPE_FD
+    case Int64(Swift.Int64)                     // XPC_TYPE_INT64
+    case Null                                   // XPC_TYPE_INT64
+    case String(Swift.String)                   // XPC_TYPE_STRING
+    case UInt64(Swift.UInt64)                   // XPC_TYPE_UINT64
+    case UUID(NSUUID)                           // XPC_TYPE_UUID
     
     // This isn't to save a character, it's because using Swift.String
     // directly in the implementations below result in "Type of expression
-    // is ambiguous without more context"
+    // is ambiguous without more context" (Swift 2.0)
     private typealias SwiftString = Swift.String
     
+    /// Initializes an `XPCMessage` using an `xpc_object_t`. This initializer
+    /// will fail and return `nil` for unsupported XPC object types. See
+    /// the list of cases above for the types that are supported.
     public init?(xpcObject: xpc_object_t) {
         let type = xpc_get_type(xpcObject)
         switch type {
         case RXPCType(.Array):
-            var array = [XPCObject]()
+            var array = [XPCMessage]()
             xpc_array_apply(xpcObject) { (_, value) in
-                if let object = XPCObject(xpcObject: value) {
-                    array.append(object)
+                if let message = XPCMessage(xpcObject: value) {
+                    array.append(message)
                 }
                 return true
             }
@@ -43,15 +40,15 @@ public enum XPCObject {
             self = .Boolean(xpc_bool_get_value(xpcObject))
         case RXPCType(.Data):
             let data = NSData(bytes: xpc_data_get_bytes_ptr(xpcObject), length: xpc_data_get_length(xpcObject))
-            self = XPCObject.Data(data)
+            self = XPCMessage.Data(data)
         case RXPCType(.Date):
             let interval = NSTimeInterval(xpc_date_get_value(xpcObject))
             self = .Date(NSDate(timeIntervalSince1970: interval))
         case RXPCType(.Dictionary):
-            var dictionary = [SwiftString: XPCObject]()
+            var dictionary = [SwiftString: XPCMessage]()
             xpc_dictionary_apply(xpcObject) { (key, value) in
-                if let object = XPCObject(xpcObject: value), key = SwiftString.fromCString(key) {
-                    dictionary[key] = object
+                if let message = XPCMessage(xpcObject: value), key = SwiftString.fromCString(key) {
+                    dictionary[key] = message
                 }
                 return true
             }
@@ -80,6 +77,8 @@ public enum XPCObject {
         }
     }
     
+    /// Converts the wrapped value to an `xpc_object_t` suitable for sending
+    /// over an XPC connection.
     public func toXPCObject() -> xpc_object_t {
         switch self {
         case .Array(let objects):
@@ -120,7 +119,7 @@ public enum XPCObject {
     }
 }
 
-extension XPCObject: CustomStringConvertible {
+extension XPCMessage: CustomStringConvertible {
     public var description: Swift.String {
         switch self {
         case .Array(let array):
@@ -151,9 +150,9 @@ extension XPCObject: CustomStringConvertible {
     }
 }
 
-extension XPCObject: Equatable {}
+extension XPCMessage: Equatable {}
 
-public func ==(lhs: XPCObject, rhs: XPCObject) -> Bool {
+public func ==(lhs: XPCMessage, rhs: XPCMessage) -> Bool {
     switch (lhs, rhs) {
     case (.Array(let lhsArray), .Array(let rhsArray)):
         return lhsArray == rhsArray

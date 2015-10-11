@@ -1,10 +1,4 @@
-//
-//  ReactiveXPC.h
-//  ReactiveXPC
-//
-//  Created by Indragie on 10/9/15.
 //  Copyright © 2015 Indragie Karunaratne. All rights reserved.
-//
 
 #import <Cocoa/Cocoa.h>
 
@@ -15,5 +9,3 @@ FOUNDATION_EXPORT double ReactiveXPCVersionNumber;
 FOUNDATION_EXPORT const unsigned char ReactiveXPCVersionString[];
 
 #import <ReactiveXPC/XPCType.h>
-
-
