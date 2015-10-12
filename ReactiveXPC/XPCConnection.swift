@@ -22,7 +22,7 @@ public class XPCConnection: NSObject {
     ///
     /// A `Completed` event sent to this sink results in the XPC connection
     /// being closed, if it was open.
-    public var outboundMessagesSink: Event<XPCMessage, NoError> -> () {
+    public var outboundMessages: Signal<XPCMessage, NoError>.Observer {
         return outboundSink
     }
     
@@ -34,7 +34,7 @@ public class XPCConnection: NSObject {
     ///
     /// Note that this signal does not send messages that were sent as replies
     /// to other messages sent from this connection, only standalone messages.
-    public var inboundMessagesSignal: Signal<XPCMessage, XPCError> {
+    public var inboundMessages: Signal<XPCMessage, XPCError> {
         return inboundSignal
     }
     
@@ -139,6 +139,15 @@ public class XPCConnection: NSObject {
         } else {
             connection = xpc_connection_create(nil, targetQueue)
         }
+        super.init()
+        commonInit()
+    }
+    
+    /// Initializes by wrapping an existing XPC connection represented by
+    /// an instance of `xpc_connection_t`
+    public init(connection: xpc_connection_t) {
+        xpc_connection_set_target_queue(connection, targetQueue)
+        self.connection = connection
         super.init()
         commonInit()
     }

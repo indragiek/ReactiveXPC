@@ -11,7 +11,7 @@ public enum XPCMessage {
     case Double(Swift.Double)                   // XPC_TYPE_DOUBLE
     case FileHandle(NSFileHandle)               // XPC_TYPE_FD
     case Int64(Swift.Int64)                     // XPC_TYPE_INT64
-    case Null                                   // XPC_TYPE_INT64
+    case Null                                   // XPC_TYPE_NULL
     case String(Swift.String)                   // XPC_TYPE_STRING
     case UInt64(Swift.UInt64)                   // XPC_TYPE_UINT64
     case UUID(NSUUID)                           // XPC_TYPE_UUID
