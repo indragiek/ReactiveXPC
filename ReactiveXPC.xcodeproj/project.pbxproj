@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7208780B1BCB2B1D00702EFA /* SignalOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7208780A1BCB2B1D00702EFA /* SignalOperators.swift */; settings = {ASSET_TAGS = (); }; };
+		720878101BCB356100702EFA /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
+		720878111BCB356800702EFA /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		720878121BCB356800702EFA /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		720878131BCB356800702EFA /* ReactiveXPC.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		720878151BCB419100702EFA /* XPCMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720878141BCB419100702EFA /* XPCMessage.swift */; settings = {ASSET_TAGS = (); }; };
 		726504BB1BC8C07F00173660 /* ReactiveXPC.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504BA1BC8C07F00173660 /* ReactiveXPC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504C21BC8C07F00173660 /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
-		726504D21BC8C08600173660 /* XPCObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D11BC8C08600173660 /* XPCObject.swift */; };
-		726504D61BC8C0D700173660 /* XPCMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCMessageTests.swift */; };
+		726504D21BC8C08600173660 /* XPCValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D11BC8C08600173660 /* XPCValue.swift */; };
+		726504D61BC8C0D700173660 /* XPCValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726504D51BC8C0D700173660 /* XPCValueTests.swift */; };
 		726504D91BC8C20700173660 /* XPCType.h in Headers */ = {isa = PBXBuildFile; fileRef = 726504D71BC8C20700173660 /* XPCType.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		726504DA1BC8C20700173660 /* XPCType.m in Sources */ = {isa = PBXBuildFile; fileRef = 726504D81BC8C20700173660 /* XPCType.m */; };
 		72D53BB01BC98F3E00DF78BD /* XPCConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */; settings = {ASSET_TAGS = (); }; };
@@ -19,13 +25,22 @@
 		72D53BBD1BC9CB6600DF78BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BBC1BC9CB6600DF78BD /* AppDelegate.swift */; };
 		72D53BBF1BC9CB6600DF78BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72D53BBE1BC9CB6600DF78BD /* Assets.xcassets */; };
 		72D53BC21BC9CB6600DF78BD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72D53BC01BC9CB6600DF78BD /* MainMenu.xib */; };
-		72D53BD01BC9CB8000DF78BD /* ExampleXPCService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */; };
-		72D53BD21BC9CB8000DF78BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D53BD11BC9CB8000DF78BD /* main.m */; };
 		72D53BD71BC9CB8000DF78BD /* ExampleXPCService.xpc in Embed XPC Services */ = {isa = PBXBuildFile; fileRef = 72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		72E0A9E81BCA236900E69CD6 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
 		72E0A9E91BCA236900E69CD6 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
 		72E0A9EB1BCA23A000E69CD6 /* Result.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72E0A9EC1BCA23A000E69CD6 /* ReactiveCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72F02E991BCAF28D00F9C28D /* XPCListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F02E981BCAF28D00F9C28D /* XPCListener.swift */; settings = {ASSET_TAGS = (); }; };
+		72F02E9A1BCAFC2900F9C28D /* ReactiveXPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; };
+		72F02E9B1BCAFC3A00F9C28D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
+		72F02E9C1BCAFC3A00F9C28D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
+		72F02E9D1BCAFC3B00F9C28D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ASSET_TAGS = (); }; };
+		72F02E9E1BCAFC3B00F9C28D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ASSET_TAGS = (); }; };
+		72F02EA01BCAFC4D00F9C28D /* Result.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB21BC9985500DF78BD /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72F02EA11BCAFC4D00F9C28D /* ReactiveCocoa.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 72D53BB31BC9985500DF78BD /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72F02EA21BCAFC4D00F9C28D /* ReactiveXPC.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 726504B71BC8C07F00173660 /* ReactiveXPC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72F02EA41BCAFC9900F9C28D /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F02EA31BCAFC9900F9C28D /* main.swift */; settings = {ASSET_TAGS = (); }; };
+		72F02EA61BCB011F00F9C28D /* XPCPackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F02EA51BCB011F00F9C28D /* XPCPackable.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +61,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7208780C1BCB353300702EFA /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				720878111BCB356800702EFA /* Result.framework in Copy Frameworks */,
+				720878121BCB356800702EFA /* ReactiveCocoa.framework in Copy Frameworks */,
+				720878131BCB356800702EFA /* ReactiveXPC.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		72D53BD61BC9CB8000DF78BD /* Embed XPC Services */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,16 +96,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72F02E9F1BCAFC4100F9C28D /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				72F02EA01BCAFC4D00F9C28D /* Result.framework in Copy Frameworks */,
+				72F02EA11BCAFC4D00F9C28D /* ReactiveCocoa.framework in Copy Frameworks */,
+				72F02EA21BCAFC4D00F9C28D /* ReactiveXPC.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7208780A1BCB2B1D00702EFA /* SignalOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignalOperators.swift; sourceTree = "<group>"; };
+		720878141BCB419100702EFA /* XPCMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCMessage.swift; sourceTree = "<group>"; };
 		726504B71BC8C07F00173660 /* ReactiveXPC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ReactiveXPC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		726504BA1BC8C07F00173660 /* ReactiveXPC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReactiveXPC.h; sourceTree = "<group>"; };
 		726504BC1BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		726504C11BC8C07F00173660 /* ReactiveXPCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactiveXPCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		726504C81BC8C07F00173660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		726504D11BC8C08600173660 /* XPCObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCObject.swift; sourceTree = "<group>"; };
-		726504D51BC8C0D700173660 /* XPCMessageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCMessageTests.swift; sourceTree = "<group>"; };
+		726504D11BC8C08600173660 /* XPCValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCValue.swift; sourceTree = "<group>"; };
+		726504D51BC8C0D700173660 /* XPCValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCValueTests.swift; sourceTree = "<group>"; };
 		726504D71BC8C20700173660 /* XPCType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPCType.h; sourceTree = "<group>"; };
 		726504D81BC8C20700173660 /* XPCType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPCType.m; sourceTree = "<group>"; };
 		72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCConnection.swift; sourceTree = "<group>"; };
@@ -89,11 +132,10 @@
 		72D53BC11BC9CB6600DF78BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		72D53BC31BC9CB6600DF78BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D53BCB1BC9CB8000DF78BD /* ExampleXPCService.xpc */ = {isa = PBXFileReference; explicitFileType = "wrapper.xpc-service"; includeInIndex = 0; path = ExampleXPCService.xpc; sourceTree = BUILT_PRODUCTS_DIR; };
-		72D53BCD1BC9CB8000DF78BD /* ExampleXPCServiceProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleXPCServiceProtocol.h; sourceTree = "<group>"; };
-		72D53BCE1BC9CB8000DF78BD /* ExampleXPCService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExampleXPCService.h; sourceTree = "<group>"; };
-		72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleXPCService.m; sourceTree = "<group>"; };
-		72D53BD11BC9CB8000DF78BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		72D53BD31BC9CB8000DF78BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F02E981BCAF28D00F9C28D /* XPCListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCListener.swift; sourceTree = "<group>"; };
+		72F02EA31BCAFC9900F9C28D /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		72F02EA51BCB011F00F9C28D /* XPCPackable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XPCPackable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +162,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				720878101BCB356100702EFA /* ReactiveXPC.framework in Frameworks */,
+				72F02E9D1BCAFC3B00F9C28D /* Result.framework in Frameworks */,
+				72F02E9E1BCAFC3B00F9C28D /* ReactiveCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +172,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72F02E9A1BCAFC2900F9C28D /* ReactiveXPC.framework in Frameworks */,
+				72F02E9C1BCAFC3A00F9C28D /* ReactiveCocoa.framework in Frameworks */,
+				72F02E9B1BCAFC3A00F9C28D /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,10 +209,14 @@
 			children = (
 				726504BA1BC8C07F00173660 /* ReactiveXPC.h */,
 				726504BC1BC8C07F00173660 /* Info.plist */,
-				726504D11BC8C08600173660 /* XPCObject.swift */,
+				726504D11BC8C08600173660 /* XPCValue.swift */,
+				720878141BCB419100702EFA /* XPCMessage.swift */,
 				72D53BAF1BC98F3E00DF78BD /* XPCConnection.swift */,
+				72F02E981BCAF28D00F9C28D /* XPCListener.swift */,
+				72F02EA51BCB011F00F9C28D /* XPCPackable.swift */,
 				726504D71BC8C20700173660 /* XPCType.h */,
 				726504D81BC8C20700173660 /* XPCType.m */,
+				7208780A1BCB2B1D00702EFA /* SignalOperators.swift */,
 			);
 			path = ReactiveXPC;
 			sourceTree = "<group>";
@@ -173,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				726504C81BC8C07F00173660 /* Info.plist */,
-				726504D51BC8C0D700173660 /* XPCMessageTests.swift */,
+				726504D51BC8C0D700173660 /* XPCValueTests.swift */,
 			);
 			path = ReactiveXPCTests;
 			sourceTree = "<group>";
@@ -201,11 +253,8 @@
 		72D53BCC1BC9CB8000DF78BD /* ExampleXPCService */ = {
 			isa = PBXGroup;
 			children = (
-				72D53BCD1BC9CB8000DF78BD /* ExampleXPCServiceProtocol.h */,
-				72D53BCE1BC9CB8000DF78BD /* ExampleXPCService.h */,
-				72D53BCF1BC9CB8000DF78BD /* ExampleXPCService.m */,
-				72D53BD11BC9CB8000DF78BD /* main.m */,
 				72D53BD31BC9CB8000DF78BD /* Info.plist */,
+				72F02EA31BCAFC9900F9C28D /* main.swift */,
 			);
 			path = ExampleXPCService;
 			sourceTree = "<group>";
@@ -270,6 +319,7 @@
 				72D53BB71BC9CB6600DF78BD /* Frameworks */,
 				72D53BB81BC9CB6600DF78BD /* Resources */,
 				72D53BD61BC9CB8000DF78BD /* Embed XPC Services */,
+				7208780C1BCB353300702EFA /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +338,7 @@
 				72D53BC71BC9CB8000DF78BD /* Sources */,
 				72D53BC81BC9CB8000DF78BD /* Frameworks */,
 				72D53BC91BC9CB8000DF78BD /* Resources */,
+				72F02E9F1BCAFC4100F9C28D /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -304,6 +355,7 @@
 		726504AE1BC8C07F00173660 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Indragie Karunaratne";
 				TargetAttributes = {
@@ -380,9 +432,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				726504D21BC8C08600173660 /* XPCObject.swift in Sources */,
+				720878151BCB419100702EFA /* XPCMessage.swift in Sources */,
+				726504D21BC8C08600173660 /* XPCValue.swift in Sources */,
+				7208780B1BCB2B1D00702EFA /* SignalOperators.swift in Sources */,
+				72F02E991BCAF28D00F9C28D /* XPCListener.swift in Sources */,
 				72D53BB01BC98F3E00DF78BD /* XPCConnection.swift in Sources */,
 				726504DA1BC8C20700173660 /* XPCType.m in Sources */,
+				72F02EA61BCB011F00F9C28D /* XPCPackable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +446,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				726504D61BC8C0D700173660 /* XPCMessageTests.swift in Sources */,
+				726504D61BC8C0D700173660 /* XPCValueTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,8 +462,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72D53BD21BC9CB8000DF78BD /* main.m in Sources */,
-				72D53BD01BC9CB8000DF78BD /* ExampleXPCService.m in Sources */,
+				72F02EA41BCAFC9900F9C28D /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +661,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleApp;
@@ -618,6 +678,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ExampleApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleApp;
@@ -628,19 +693,34 @@
 		72D53BD91BC9CB8000DF78BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ExampleXPCService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleXPCService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		72D53BDA1BC9CB8000DF78BD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = ExampleXPCService/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.indragie.ExampleXPCService;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
