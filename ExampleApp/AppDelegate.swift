@@ -18,14 +18,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var connection: XPCConnection!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        // Open a connection to the bundled XPC service
         connection = XPCConnection(serviceName: "com.indragie.ExampleXPCService")
+        // Unpack and print all strings received from the service.
         connection.inbound
             .map(unpackString)
             .ignoreNil()
             .observeNext {
                print("Received " + $0)
             }
+        // Resume the connection, since it was in a suspended state.
         connection.resume()
+        // Send all text typed into the text view to the XPC service.
         textView.rac_textSignal()
             .toSignalProducer()
             .map { pack($0 as! String) }

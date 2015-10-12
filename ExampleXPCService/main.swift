@@ -3,6 +3,8 @@
 import ReactiveXPC
 import ReactiveCocoa
 
+// Listen for incoming connections, and subscribe to the `inbound` signal
+// to receive strings sent by the app, uppercase them, and send them back.
 listen { connection in
     connection.inbound
         .ignoreErrors()
