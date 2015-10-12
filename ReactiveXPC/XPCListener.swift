@@ -29,7 +29,7 @@ public func listen(handler: ConnectionHandler) {
             lock(connectionsLock) {
                 connections.append(connection)
             }
-            connection.inboundMessages.observeError { [weak connection] _ in
+            connection.inbound.observeError { [weak connection] _ in
                 if let connection = connection {
                     lock(connectionsLock) {
                         if let index = connections.indexOf(connection) {

@@ -3,15 +3,15 @@
 import XCTest
 import ReactiveXPC
 
-class XPCMessageTests: XCTestCase {
-    private func toAndFromXPCMessage(object: XPCMessage) -> XPCMessage {
-         return XPCMessage(xpcObject: object.toXPCObject())!
+class XPCValueTests: XCTestCase {
+    private func toAndFromXPCValue(object: XPCValue) -> XPCValue {
+         return XPCValue(object.toDarwinXPCObject())!
     }
     
     func testArrayMarshalling() {
         let numbers: [Int64] = [1, 2, 3]
-        let numbersXPC = numbers.map { XPCMessage.Int64($0) }
-        switch toAndFromXPCMessage(XPCMessage.Array(numbersXPC)) {
+        let numbersXPC = numbers.map { XPCValue.Int64($0) }
+        switch toAndFromXPCValue(XPCValue.Array(numbersXPC)) {
         case .Array(let a):
             var resultNumbers = [Int64]()
             for innerObject in a {
@@ -29,16 +29,16 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testArrayEquality() {
-        let numbers = [1, 2, 3].map { XPCMessage.Int64($0) }
-        let xpcNumbers = XPCMessage.Array(numbers)
+        let numbers = [1, 2, 3].map { XPCValue.Int64($0) }
+        let xpcNumbers = XPCValue.Array(numbers)
         XCTAssertEqual(xpcNumbers, xpcNumbers)
-        let differentNumbers = [4, 5, 6].map { XPCMessage.Int64($0) }
-        XCTAssertNotEqual(xpcNumbers, XPCMessage.Array(differentNumbers))
+        let differentNumbers = [4, 5, 6].map { XPCValue.Int64($0) }
+        XCTAssertNotEqual(xpcNumbers, XPCValue.Array(differentNumbers))
     }
     
     func testBooleanMarshalling() {
         let value = true
-        switch toAndFromXPCMessage(XPCMessage.Boolean(value)) {
+        switch toAndFromXPCValue(XPCValue.Boolean(value)) {
         case .Boolean(let resultValue):
             XCTAssertEqual(resultValue, value)
         default:
@@ -47,15 +47,15 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testBooleanEquality() {
-        let xpcTrue = XPCMessage.Boolean(true)
+        let xpcTrue = XPCValue.Boolean(true)
         XCTAssertEqual(xpcTrue, xpcTrue)
-        XCTAssertNotEqual(xpcTrue, XPCMessage.Boolean(false))
+        XCTAssertNotEqual(xpcTrue, XPCValue.Boolean(false))
     }
     
     func testDataMarshalling() {
         var bytes = [0xDE, 0xAD, 0xBE, 0xEF] as [UInt8]
         let data = NSData(bytes: &bytes, length: bytes.count)
-        switch toAndFromXPCMessage(XPCMessage.Data(data)) {
+        switch toAndFromXPCValue(XPCValue.Data(data)) {
         case .Data(let resultData):
             XCTAssertEqual(resultData, data)
         default:
@@ -67,15 +67,15 @@ class XPCMessageTests: XCTestCase {
         var bytes = [0xDE, 0xAD, 0xBE, 0xEF] as [UInt8]
         let data1 = NSData(bytes: &bytes, length: bytes.count)
         let data2 = NSData(bytes: &bytes, length: bytes.count)
-        XCTAssertEqual(XPCMessage.Data(data1), XPCMessage.Data(data2))
+        XCTAssertEqual(XPCValue.Data(data1), XPCValue.Data(data2))
         bytes.removeLast()
         let data3 = NSData(bytes: &bytes, length: bytes.count)
-        XCTAssertNotEqual(XPCMessage.Data(data1), XPCMessage.Data(data3))
+        XCTAssertNotEqual(XPCValue.Data(data1), XPCValue.Data(data3))
     }
     
     func testDateMarshalling() {
         let date = NSDate(timeIntervalSince1970: 10)
-        switch toAndFromXPCMessage(XPCMessage.Date(date)) {
+        switch toAndFromXPCValue(XPCValue.Date(date)) {
         case .Date(let resultDate):
             XCTAssertEqual(resultDate, date)
         default:
@@ -86,18 +86,18 @@ class XPCMessageTests: XCTestCase {
     func testDateEquality() {
         let date1 = NSDate(timeIntervalSince1970: 10)
         let date2 = NSDate(timeIntervalSince1970: 10)
-        XCTAssertEqual(XPCMessage.Date(date1), XPCMessage.Date(date2))
-        XCTAssertNotEqual(XPCMessage.Date(date1), XPCMessage.Date(date1.dateByAddingTimeInterval(1)))
+        XCTAssertEqual(XPCValue.Date(date1), XPCValue.Date(date2))
+        XCTAssertNotEqual(XPCValue.Date(date1), XPCValue.Date(date1.dateByAddingTimeInterval(1)))
     }
     
     func testDictionaryMarshalling() {
         let dict: [String: Int64] = ["A": 1, "B": 2, "C": 3]
-        var xpcDict = [String: XPCMessage]()
+        var xpcDict = [String: XPCValue]()
         for (key, value) in dict {
-            xpcDict[key] = XPCMessage.Int64(value)
+            xpcDict[key] = XPCValue.Int64(value)
         }
         print(xpcDict)
-        switch toAndFromXPCMessage(XPCMessage.Dictionary(xpcDict)) {
+        switch toAndFromXPCValue(XPCValue.Dictionary(xpcDict)) {
         case .Dictionary(let d):
             print(d)
             var resultDict = [String: Int64]()
@@ -117,19 +117,19 @@ class XPCMessageTests: XCTestCase {
     
     func testDictionaryEquality() {
         var dict = [
-            "A": XPCMessage.Int64(1),
-            "B": XPCMessage.Int64(2),
-            "C": XPCMessage.Int64(3)
+            "A": XPCValue.Int64(1),
+            "B": XPCValue.Int64(2),
+            "C": XPCValue.Int64(3)
         ]
-        let xpcDict = XPCMessage.Dictionary(dict)
+        let xpcDict = XPCValue.Dictionary(dict)
         XCTAssertEqual(xpcDict, xpcDict)
         dict.removeValueForKey("A")
-        XCTAssertNotEqual(xpcDict, XPCMessage.Dictionary(dict))
+        XCTAssertNotEqual(xpcDict, XPCValue.Dictionary(dict))
     }
     
     func testDoubleMarshalling() {
         let value = M_PI
-        switch toAndFromXPCMessage(XPCMessage.Double(value)) {
+        switch toAndFromXPCValue(XPCValue.Double(value)) {
         case .Double(let resultValue):
             XCTAssertEqual(resultValue, value)
         default:
@@ -138,12 +138,12 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testDoubleEquality() {
-        let xpcPi = XPCMessage.Double(M_PI)
+        let xpcPi = XPCValue.Double(M_PI)
         XCTAssertEqual(xpcPi, xpcPi)
-        XCTAssertNotEqual(xpcPi, XPCMessage.Double(M_PI_2))
+        XCTAssertNotEqual(xpcPi, XPCValue.Double(M_PI_2))
     }
     
-    private func createScratchFile(name: String = "XPCMessageTests") -> String {
+    private func createScratchFile(name: String = "XPCValueTests") -> String {
         let path = (NSTemporaryDirectory() as NSString).stringByAppendingPathComponent(name)
         NSData().writeToFile(path, atomically: true)
         return path
@@ -158,7 +158,7 @@ class XPCMessageTests: XCTestCase {
         if (fstat(fileHandle.fileDescriptor, &fhStat) < 0) {
             XCTFail("Failed to get file status")
         } else {
-            switch toAndFromXPCMessage(XPCMessage.FileHandle(fileHandle)) {
+            switch toAndFromXPCValue(XPCValue.FileHandle(fileHandle)) {
             case .FileHandle(let resultFileHandle):
                 var resultFhStat = stat()
                 if (fstat(resultFileHandle.fileDescriptor, &resultFhStat) < 0) {
@@ -177,19 +177,19 @@ class XPCMessageTests: XCTestCase {
         let path = createScratchFile()
         let fh1 = NSFileHandle(forWritingAtPath: path)!
         let fh2 = NSFileHandle(forWritingAtPath: path)!
-        let fh3 = NSFileHandle(forWritingAtPath: createScratchFile("XPCMessageTests2"))!
+        let fh3 = NSFileHandle(forWritingAtPath: createScratchFile("XPCValueTests2"))!
         defer {
             fh1.closeFile()
             fh2.closeFile()
             fh3.closeFile()
         }
-        XCTAssertEqual(XPCMessage.FileHandle(fh1), XPCMessage.FileHandle(fh2))
-        XCTAssertNotEqual(XPCMessage.FileHandle(fh1), XPCMessage.FileHandle(fh3))
+        XCTAssertEqual(XPCValue.FileHandle(fh1), XPCValue.FileHandle(fh2))
+        XCTAssertNotEqual(XPCValue.FileHandle(fh1), XPCValue.FileHandle(fh3))
     }
     
     func testInt64Marshalling() {
         let value = -10 as Int64
-        switch toAndFromXPCMessage(XPCMessage.Int64(value)) {
+        switch toAndFromXPCValue(XPCValue.Int64(value)) {
         case .Int64(let resultValue):
             XCTAssertEqual(resultValue, value)
         default:
@@ -198,13 +198,13 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testInt64Equality() {
-        let xpcInt = XPCMessage.Int64(-10)
+        let xpcInt = XPCValue.Int64(-10)
         XCTAssertEqual(xpcInt, xpcInt)
-        XCTAssertNotEqual(xpcInt, XPCMessage.Int64(1))
+        XCTAssertNotEqual(xpcInt, XPCValue.Int64(1))
     }
     
     func testNullMarshalling() {
-        switch toAndFromXPCMessage(XPCMessage.Null) {
+        switch toAndFromXPCValue(XPCValue.Null) {
         case .Null: break
         default:
             XCTFail("Expected null value")
@@ -212,14 +212,14 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testNullEquality() {
-        let xpcNull = XPCMessage.Null
+        let xpcNull = XPCValue.Null
         XCTAssertEqual(xpcNull, xpcNull)
-        XCTAssertNotEqual(xpcNull, XPCMessage.Int64(10))
+        XCTAssertNotEqual(xpcNull, XPCValue.Int64(10))
     }
     
     func testStringMarshalling() {
         let str = "Hello World"
-        switch toAndFromXPCMessage(XPCMessage.String(str)) {
+        switch toAndFromXPCValue(XPCValue.String(str)) {
         case .String(let resultStr):
             XCTAssertEqual(resultStr, str)
         default:
@@ -228,14 +228,14 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testStringEquality() {
-        let xpcString = XPCMessage.String("Hello World")
+        let xpcString = XPCValue.String("Hello World")
         XCTAssertEqual(xpcString, xpcString)
-        XCTAssertNotEqual(xpcString, XPCMessage.String("Foo"))
+        XCTAssertNotEqual(xpcString, XPCValue.String("Foo"))
     }
     
     func testUInt64Marshalling() {
         let value = 25 as UInt64
-        switch toAndFromXPCMessage(XPCMessage.UInt64(value)) {
+        switch toAndFromXPCValue(XPCValue.UInt64(value)) {
         case .UInt64(let resultValue):
             XCTAssertEqual(resultValue, value)
         default:
@@ -244,14 +244,14 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testUInt64Equality() {
-        let xpcUInt = XPCMessage.UInt64(25)
+        let xpcUInt = XPCValue.UInt64(25)
         XCTAssertEqual(xpcUInt, xpcUInt)
-        XCTAssertNotEqual(xpcUInt, XPCMessage.UInt64(1))
+        XCTAssertNotEqual(xpcUInt, XPCValue.UInt64(1))
     }
     
     func testUUIDMarshalling() {
         let UUID = NSUUID()
-        switch toAndFromXPCMessage(XPCMessage.UUID(UUID)) {
+        switch toAndFromXPCValue(XPCValue.UUID(UUID)) {
         case .UUID(let resultUUID):
             XCTAssertEqual(resultUUID, UUID)
         default:
@@ -260,8 +260,8 @@ class XPCMessageTests: XCTestCase {
     }
     
     func testUUIDEquality() {
-        let xpcUUID = XPCMessage.UUID(NSUUID())
+        let xpcUUID = XPCValue.UUID(NSUUID())
         XCTAssertEqual(xpcUUID, xpcUUID)
-        XCTAssertNotEqual(xpcUUID, XPCMessage.UUID(NSUUID()))
+        XCTAssertNotEqual(xpcUUID, XPCValue.UUID(NSUUID()))
     }
 }

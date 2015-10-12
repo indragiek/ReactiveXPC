@@ -10,11 +10,11 @@ import ReactiveCocoa
 public class XPCConnection: NSObject {
     private let connection: xpc_connection_t
     private let targetQueue = dispatch_queue_create("com.indragie.ReactiveXPC.XPCConnection.TargetQueue", DISPATCH_QUEUE_SERIAL)
-    private let (outboundSignal, outboundSink) = Signal<XPCMessage, NoError>.pipe()
-    private let (inboundSignal, inboundSink) = Signal<XPCMessage, XPCError>.pipe()
+    private let (outboundSignal, outboundSink) = Signal<XPCValue, NoError>.pipe()
+    private let (inboundSignal, inboundSink) = Signal<XPCValue, XPCError>.pipe()
     
     /// `Next` events (signal values) sent to this sink result in an outgoing
-    /// message (an XPC object) being queued to be sent over the connection.
+    /// message (an XPC value) being queued to be sent over the connection.
     /// This provides a mechanism for unidirectional communication with the
     /// other process, but provides no indication that the message was
     /// successfully delivered. The connection must be resumed (by calling
@@ -22,11 +22,11 @@ public class XPCConnection: NSObject {
     ///
     /// A `Completed` event sent to this sink results in the XPC connection
     /// being closed, if it was open.
-    public var outboundMessages: Signal<XPCMessage, NoError>.Observer {
+    public var outbound: Signal<XPCValue, NoError>.Observer {
         return outboundSink
     }
     
-    /// Signal of XPC messages received from the other process. If the connection
+    /// Signal of XPC values received from the other process. If the connection
     /// is invalid, this signal will error immediately after calling `resume()`.
     /// The signal will also error if the connection is interrupted, if the other
     /// process is about to terminate, or if the XPC connection is cancelled via
@@ -34,7 +34,7 @@ public class XPCConnection: NSObject {
     ///
     /// Note that this signal does not send messages that were sent as replies
     /// to other messages sent from this connection, only standalone messages.
-    public var inboundMessages: Signal<XPCMessage, XPCError> {
+    public var inbound: Signal<XPCValue, XPCError> {
         return inboundSignal
     }
     
@@ -98,16 +98,17 @@ public class XPCConnection: NSObject {
                         return
                     }
                 }
-                if let deserializedObject = XPCMessage(xpcObject: object) {
-                    sendNext(strongSelf.inboundSink, deserializedObject)
+                if let message = XPCMessage(xpcObject: object) {
+                    sendNext(strongSelf.inboundSink, message.value)
                 }
             }
         }
         
-        outboundSignal.observeNext { [weak self] object in
+        outboundSignal.observeNext { [weak self] value in
             if let strongSelf = self {
                 dispatch_async(strongSelf.targetQueue) {
-                    xpc_connection_send_message(strongSelf.connection, object.toXPCObject())
+                    let message = XPCMessage(value: value)
+                    xpc_connection_send_message(strongSelf.connection, message.toDarwinXPCMessage())
                 }
             }
         }
