@@ -7,21 +7,30 @@
 //
 
 import Cocoa
+import ReactiveXPC
+import ReactiveCocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
-
+    @IBOutlet var textView: NSTextView!
+    var connection: XPCConnection!
 
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-        // Insert code here to initialize your application
+        connection = XPCConnection(serviceName: "com.indragie.ExampleXPCService")
+        connection.inbound
+            .map(unpackString)
+            .ignoreNil()
+            .observeNext {
+               print("Received " + $0)
+            }
+        connection.resume()
+        textView.rac_textSignal()
+            .toSignalProducer()
+            .map { pack($0 as! String) }
+            .flatMapError { _ in SignalProducer<XPCValue, NoError>.empty }
+            .start(connection.outbound)
     }
-
-    func applicationWillTerminate(aNotification: NSNotification) {
-        // Insert code here to tear down your application
-    }
-
-
 }
 
