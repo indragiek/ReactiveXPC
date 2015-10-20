@@ -57,6 +57,11 @@ listen { connection in
 }
 ```
 
+### Requirements
+
+* Xcode 7.0+ (Swift 2.0+)
+* OS X 10.9+
+
 ### Getting Started
 
 ReactiveXPC supports [Carthage](https://github.com/Carthage/Carthage). Add this line to your Cartfile:
